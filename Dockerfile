@@ -1,9 +1,7 @@
-FROM ubuntu:24.04
+FROM ubuntu:latest
 
-WORKDIR /app
+RUN apt update && apt install -y iputils-ping
 
-RUN apt update && apt install -y curl vim
+ENTRYPOINT ["ping", "-c", "4"]
 
-COPY app.txt .
-
-EXPOSE 80
+CMD ["google.com"]
